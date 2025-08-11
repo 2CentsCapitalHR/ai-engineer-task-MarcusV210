@@ -28,33 +28,17 @@ Built with:
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/legal-document-analyzer.git
-cd legal-document-analyzer
+git clone https://github.com/MarcusV210/ai-engineer-task-MarcusV210.git
+cd ai-engineer-task-MarcusV210
 ```
 
-### 2️⃣ Create and activate a virtual environment
-
-**Windows (PowerShell):**
-
-```powershell
-python -m venv venv
-.\venv\Scripts\activate
-```
-
-**macOS / Linux (bash):**
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 3️⃣ Install dependencies
+### 2️⃣ Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Environment variables
+### 3️⃣ Environment variables
 
 Create a `.env` file in the project root:
 
@@ -71,7 +55,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 ### Run the Streamlit app
 
 ```bash
-streamlit run app.py
+streamlit run frontend.py
 ```
 
 ### Upload documents
@@ -83,35 +67,22 @@ streamlit run app.py
 
 ---
 
-## 📂 Project Structure
-
-```
-📦 legal-document-analyzer
- ┣ 📂 data
- ┃ ┣ 📂 uploaded_files     # Uploaded .docx files
- ┃ ┣ analysis_results.json # Example JSON output
- ┣ app.py                  # Main Streamlit app
- ┣ generate-answer.py      # Document analysis logic
- ┣ requirements.txt        # Python dependencies
- ┣ README.md               # This file
- ┗ .env                    # API keys & secrets
-```
-
----
-
 ## 📄 Example Output (JSON)
 
 ```json
 {
+  "process": "Company Incorporation",
+  "documents_uploaded": 4,
+  "required_documents": 5,
+  "missing_document": "Register of Members and Directors",
   "issues_found": [
-    "Confidentiality clauses too broad",
-    "Termination grounds unclear",
-    "Definition of 'Remote Employee' missing"
-  ],
-  "suggestions": [
-    "Clarify confidentiality scope",
-    "Specify clear termination conditions",
-    "Add definition for 'Remote Employee'"
+    {
+      "document": "Articles of Association",
+      "section": "Clause 3.1",
+      "issue": "Jurisdiction clause does not specify ADGM",
+      "severity": "High",
+      "suggestion": "Update jurisdiction to ADGM Courts."
+    }
   ]
 }
 ```
